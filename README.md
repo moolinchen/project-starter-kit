@@ -24,7 +24,7 @@ When you work with AI on design docs, art, 3D or code, the same problems keep co
 - **Files end up everywhere**: briefs, project files, review images, deliverables and temporary caches all get mixed together; switch AI tools or come back a few weeks later and you can't find anything.
 - **Version and review records are scattered**: which version was approved, by whom, and on what evidence lives only in chat history; once a new version is made, nobody can say whether it was reviewed again.
 - **Deliverables are hard to find**: there's no single record of which file was actually delivered or whether it was accepted.
-- Temporary files keep piling up: render caches, logs, test screenshots, scratch files from checks and more. With AI in the loop these easily run into hundreds or thousands of files, yet you don't dare delete them for fear of losing review evidence or key files and breaking the project.
+- **Temporary files keep piling up**: render caches, logs, test screenshots, scratch files from checks and more. With AI in the loop these easily run into hundreds or thousands of files, yet you don't dare delete them for fear of losing review evidence or key files and breaking the project.
 
 How this kit handles it:
 
@@ -150,7 +150,19 @@ Run `python3 management/cli.py <command>` in the project folder:
 | `add-deliverable` | Register a deliverable |
 | `preview-cleanup [--write-script]` | Cleanup preview; can generate a deletion script that requires typing DELETE and is never run automatically |
 
-See [docs/AI接入.md](docs/AI接入.md) for options. The CLI has no delete command.
+Options (`[...]` = optional, `…` = repeatable):
+
+| Command | Options |
+|---|---|
+| `status` | — |
+| `add-task` | `--title <title>` `[--status 待办\|进行中\|阻塞\|完成]` `[--batch <batch-id>]` `[--blocker <text>]` `[--id <id>]` — the ID is generated automatically if omitted |
+| `add-version` | `--task <task-id>` `--path <relative-path> […]` `[--label <text>]` `[--note <text>]` `[--id <id>]` `[--allow-missing]` — paths must exist unless `--allow-missing` is given |
+| `submit-review` | `--version <version-id>` `[--note <text>]` — refused for a version that has already passed |
+| `review` | `--version <version-id>` `--result pass\|reject` `--issues <conclusion>` `[--evidence <path> …]` — `pass` requires at least one evidence path |
+| `add-deliverable` | `--version <version-id>` `--path <deliverable-path>` `--criteria <criteria>` `[--accepted]` `[--id <id>]` `[--allow-missing]` — `--accepted` requires the version to have passed review |
+| `preview-cleanup` | `[--write-script]` — writes a deletion script to `90-tmp` that requires typing DELETE; it is never run |
+
+Global options (before the command): `--project <dir>` (defaults to the project containing `cli.py`) and `--json` (JSON output). Exit codes: `0` success, `1` validation or other error, `2` conflict / lock held. While the workbench server is running, the CLI saves through its local API; otherwise it takes the same project lock and writes through the same validated path. The CLI has no delete command. See also [docs/AI接入.md](docs/AI接入.md) (Chinese).
 
 ## Security
 
