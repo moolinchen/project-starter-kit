@@ -1,0 +1,23 @@
+# Python
+__pycache__/
+*.py[cod]
+# Logs (the example's fictional render.log is a test fixture and is kept)
+*.log
+!example-星港窗户演示/90-tmp/T013_试渲染缓存/render.log
+# Runtime locks
+*.lock
+.server.lock
+# Workbench recovery backups
+**/management/recovery/
+# Generated cleanup scripts
+**/90-tmp/cleanup-*.sh
+**/90-tmp/cleanup-*.bat
+# OS / editor
+.DS_Store
+._*
+Thumbs.db
+.vscode/
+.idea/
+# Archives
+*.zip
+*.tar.gz

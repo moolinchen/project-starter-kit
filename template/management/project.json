@@ -1,0 +1,20 @@
+{
+  "schemaVersion": 1,
+  "templateVersion": "1.1.0",
+  "revision": 0,
+  "project": {
+    "name": "新项目",
+    "scope": "",
+    "acceptance": "",
+    "next": "",
+    "kind": "通用"
+  },
+  "tasks": [],
+  "versions": [],
+  "reviews": [],
+  "deliveries": [],
+  "settlements": [],
+  "batches": [],
+  "seals": [],
+  "history": []
+}

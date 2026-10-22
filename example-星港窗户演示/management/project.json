@@ -1,0 +1,106 @@
+{
+  "schemaVersion": 1,
+  "templateVersion": "1.1.0",
+  "revision": 1,
+  "project": {
+    "name": "星港窗户 · 虚构示例",
+    "kind": "美术",
+    "scope": "调整一扇窗户玻璃的视觉表现，交付可编辑 SVG；不包含场景建模。",
+    "acceptance": "低反射玻璃，窗框轮廓清晰；可编辑源文件和确认交付一致。",
+    "next": "检查封版并生成材料清理预览。"
+  },
+  "tasks": [
+    {
+      "id": "T012",
+      "title": "窗户玻璃反射调整",
+      "status": "完成",
+      "blocker": "",
+      "batchId": "T012_窗户玻璃调整"
+    }
+  ],
+  "versions": [
+    {
+      "id": "V001",
+      "taskId": "T012",
+      "label": "初始玻璃",
+      "paths": "30-work/window-v001.svg",
+      "note": "旧版保留，反射过亮。"
+    },
+    {
+      "id": "V002",
+      "taskId": "T012",
+      "label": "低反射玻璃",
+      "paths": "30-work/window-v002.svg\n50-versions/V002回退说明.md",
+      "note": "降低反射并保留窗框。"
+    }
+  ],
+  "reviews": [
+    {
+      "id": "R001",
+      "versionId": "V001",
+      "status": "退回",
+      "issues": "玻璃反射过亮。",
+      "evidence": "40-review/T012_窗户玻璃调整/对比说明.md"
+    },
+    {
+      "id": "R002",
+      "versionId": "V002",
+      "status": "通过",
+      "issues": "虚构确认：反射强度和轮廓符合要求。",
+      "evidence": "40-review/accepted/V002确认说明.md"
+    }
+  ],
+  "deliveries": [
+    {
+      "id": "D001",
+      "versionId": "V002",
+      "path": "80-deliver/window-final.svg",
+      "criteria": "低反射、轮廓清晰、可编辑。",
+      "status": "已验收"
+    }
+  ],
+  "settlements": [
+    {
+      "id": "C001",
+      "summary": "虚构项目完成两版调整，交付一份可编辑 SVG，无待办。",
+      "amount": "0",
+      "currency": "演示单位",
+      "evidence": "",
+      "note": "仅演示，不涉及真实付款；此记录不是付款凭证。"
+    }
+  ],
+  "batches": [
+    {
+      "id": "T012_窗户玻璃调整",
+      "purpose": "玻璃调整审核包与中间日志",
+      "source": "源 SVG 可重新生成预览；日志来自虚构渲染流程。",
+      "paths": "40-review/T012_窗户玻璃调整",
+      "retained": "30-work/window-v002.svg\n40-review/accepted/V002确认说明.md\n80-deliver/window-final.svg",
+      "status": "待确认",
+      "blocker": "旧版退回审核仍引用对比说明，保留审核包。",
+      "unique": false,
+      "running": false
+    },
+    {
+      "id": "T013_试渲染缓存",
+      "purpose": "可重建的渲染中间日志",
+      "source": "从 30-work/window-v002.svg 重新生成。",
+      "paths": "90-tmp/T013_试渲染缓存",
+      "retained": "30-work/window-v002.svg\n40-review/accepted/V002确认说明.md\n80-deliver/window-final.svg",
+      "status": "可清理",
+      "blocker": "",
+      "unique": false,
+      "running": false
+    }
+  ],
+  "seals": [],
+  "history": [
+    {
+      "id": "H6a9a25fca0b65441",
+      "createdAt": "2026-10-22T16:05:09.761711+00:00",
+      "action": "模板升级 1.0.0→1.1.0",
+      "fromRevision": 0,
+      "toRevision": 1
+    }
+  ]
+}

@@ -1,0 +1,9 @@
+<!doctype html><html lang="zh-CN"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>项目工作台</title><link rel="stylesheet" href="style.css"></head><body>
+<div class="shell"><aside><div class="brand"><span>项</span> 项目工作台<small>PROJECT KIT · 1.1</small></div><nav id="nav"></nav><div class="aside-note">每个项目独立保存<br>材料留在业务目录<br>封版不会自动删除</div></aside>
+<main><header><div><p class="eyebrow">LOCAL PROJECT / 本地项目</p><h1 id="projectName">项目工作台</h1></div><div id="connection" class="badge">正在连接</div></header>
+<div class="toolbar"><span id="saveState" role="status">正在读取项目…</span><div><button id="reload">重新载入</button><button id="export">导出 JSON</button><label class="button">导入 JSON<input id="import" type="file" accept=".json,application/json" hidden></label><button id="save" class="primary">保存到项目</button></div></div>
+<div id="message" role="alert" hidden></div><section id="content"></section>
+<footer>唯一动态状态：management/project.json · 保存前校验 · 文件路径相对于项目根目录</footer></main></div>
+<dialog id="editor"><form id="editForm"><div class="dialog-head"><h2 id="editorTitle"></h2><button type="button" id="closeEditor" aria-label="关闭">×</button></div><div id="fields"></div><div id="formError" role="alert"></div><div class="dialog-actions"><button type="button" id="cancelEditor">取消 / 返回</button><button type="submit" class="primary">确认修改</button></div></form></dialog>
+<dialog id="confirmDialog"><h2 id="confirmTitle">确认操作</h2><p id="confirmText"></p><div class="dialog-actions"><button id="confirmNo">取消 / 返回</button><button id="confirmYes" class="primary">确认</button></div></dialog>
+<script src="app.js"></script></body></html>
