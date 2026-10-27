@@ -1,0 +1,22 @@
+【macOS 首次运行必读】
+
+从网上下载的 .command 文件会被 macOS 打上"隔离"标记，
+双击时会提示"Apple 无法验证……是否包含恶意软件"。
+这不是病毒，只是本脚本没有苹果开发者签名。任选一种方法解决（只需一次）：
+
+方法一（推荐，最简单）
+  在 Finder 里右键点"新建项目.command" → 选"打开" → 弹窗里再点"打开"。
+  项目里的"启动面板.command"第一次打开时也照此操作。
+
+方法二（一次清掉整个文件夹）
+  1. 打开"终端"（启动台 → 其他 → 终端）
+  2. 输入下面这行（注意最后有个空格），然后把本文件夹拖进终端窗口，按回车：
+     xattr -dr com.apple.quarantine 
+  之后文件夹里所有 .command 都能直接双击运行。
+
+方法三（会用 Git 的话）
+  git clone https://github.com/moolinchen/project-starter-kit.git
+  用 git 拉下来的文件一般不会带隔离标记。
+
+运行环境：只需要 Python 3.9+ 和浏览器。Windows 用户请运行 .bat 文件，或：
+  python tools/init_project.py "目标目录" --name "项目名称"
