@@ -16,7 +16,7 @@ TEMPLATE = BASE / 'template'
 sys.path.insert(0, str(TEMPLATE / 'management'))
 import core  # 母版的 core：用于校验和迁移写入
 
-CODE_FILES = {'management/PROTOCOL.md', 'management/SCHEMA.md', 'management/core.py', 'management/server.py', 'management/cli.py',
+CODE_FILES = {'management/PROTOCOL.md', 'management/SCHEMA.md', 'management/QUALITY.md', 'management/quality.py', 'management/core.py', 'management/server.py', 'management/cli.py',
               'management/app.js', 'management/index.html', 'management/style.css', '启动面板.command', '启动面板.bat'}
 STATE = 'management/project.json'
 
@@ -64,7 +64,7 @@ def upgrade(target, dry_run=False, apply_code=False, show_diff=True, log=print):
         if show_diff: log(d.rstrip('\n'))
     log(f'\n[用户可编辑文件有差异，不替换] {len(user)} 个' + ''.join('\n  ! ' + r for r, _ in user))
     if any(r == 'AGENTS.md' for r, _ in user):
-        log('  提示：1.1.0 的 AGENTS.md 新增“写状态优先使用 management/cli.py”一行，可人工合并。')
+        log('  提示：AGENTS.md 有更新，请人工合并适用的 CLI 和可选质量检查规范。')
     log('\n[project.json] ' + ('已是 ' + old_version if old_version == core.TEMPLATE_VERSION else
         f'将迁移 templateVersion {old_version}→{core.TEMPLATE_VERSION}（先备份，追加 history，revision+1）' if migrate else
         '管理代码未升级，暂不迁移（旧代码只认旧版本号）'))

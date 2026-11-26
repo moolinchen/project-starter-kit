@@ -164,3 +164,7 @@ python3 tools/upgrade_project.py 项目目录 --apply-code   # 备份后替换�
 建议引用写法：
 
 > 本项目基于 [Project Starter Kit](https://github.com/moolinchen/project-starter-kit)（© 2026 moolinchen，MIT 许可证）。
+
+## 可选游戏工程质量检查（预览）
+
+母版内置可选的轻量检查入口，按 quick / verify / release 分级执行经过审核的本地命令；无需额外 Python 依赖，不自动安装引擎工具、不调用 AI。详见 [游戏工程质量检查与引擎接入预设](template/management/QUALITY.md)。非代码项目不用启用，已有项目保留其配置。
