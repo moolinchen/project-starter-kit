@@ -1,5 +1,9 @@
 # Changelog / 更新记录
 
+## Unreleased / 待发布
+
+- Optional local code quality gates: quick / verify / release, reviewed commands, compact failure output, no automatic installations or AI calls. Existing project state schema unchanged; engine recipes and runner tests included.
+
 ## 1.1.0 (2026-10-22)
 
 - **Template upgrade tool** `tools/upgrade_project.py`: `--dry-run` lists differences only; the default run only adds missing files; `--apply-code` backs up old management code/protocol to `management/recovery/upgrade-<time>-from-<old>/`, replaces it, and migrates `templateVersion` in `project.json` (backup, history entry, revision +1). User-editable files (AGENTS.md, PROJECT.md, folder READMEs) are only reported; work files are never touched; refuses to run while the project lock exists.

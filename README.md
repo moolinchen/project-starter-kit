@@ -178,3 +178,7 @@ This project is released under the [MIT License](LICENSE): you may use, modify, 
 Suggested attribution:
 
 > Based on [Project Starter Kit](https://github.com/moolinchen/project-starter-kit) (© 2026 moolinchen, MIT License).
+
+## Optional game/code quality gates (preview)
+
+The template includes an opt-in, dependency-free Python runner with quick / verify / release levels. It executes reviewed local project commands, reports short results, and does not install engine tooling or invoke AI. See [quality gates and engine recipes](template/management/QUALITY.md). Existing projects retain their configuration; non-code projects can ignore this module.

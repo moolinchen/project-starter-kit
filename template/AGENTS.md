@@ -14,3 +14,7 @@
 - 每次状态写入后运行 `python3 management/core.py`。收尾同时运行 `python3 management/core.py --preview`。如有校验错误须修复并重跑。
 
 这些文件提供明确规则与校验，不保证任意 AI 会自动读取或遵守。用户须显式要求其他 AI 读取它们。
+
+## 可选代码质量检查
+
+仅当任务涉及代码且项目已启用质量检查时，按 `management/QUALITY.md` 使用 `python3 management/quality.py quick --run` 在任务收尾执行已批准命令；重要功能用 verify，发布前用 release。首次或配置变化先看计划并取得确认。未配置报告未检查，不安装工具；不扩大格式化范围。仅在失败时读取必要错误，最多两轮自动修复；未通过或未运行如实报告。非代码任务跳过此模块，原有状态校验不变。

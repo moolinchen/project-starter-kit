@@ -16,3 +16,5 @@ description: 为游戏策划、美术、3D 或代码任务初始化独立项目�
 后续状态修改遵守项目协议，优先用 `python3 management/cli.py`（status/add-task/add-version/submit-review/review/add-deliverable/preview-cleanup），其次使用本地 API 的 etag 保存与冲突处理。已建项目需要跟上母版时，先关闭服务，用 `python3 "模板包/tools/upgrade_project.py" "项目目录" --dry-run` 查看，再按用户确认决定是否加 `--apply-code`。新版本不能继承旧版审核。批次只在建批次、重要移交、收尾更新。不要搭中央数据库，不执行真实付款或自动删除，不触及项目外缓存，不声称所有 AI 都会自动遵守。
 
 一次性小任务可减少记录数量，但不绕过验证。完整流程和字段以项目内文档为准。若目标结构或权限不允许，报告确切路径及已完成步骤，继续可独立执行的检查。
+
+代码或游戏项目可按项目内 `management/QUALITY.md` 选择启用质量检查；先复用实际工程已有命令，经用户确认后配置，按 quick / verify / release 分级执行。非代码任务跳过，不自动安装工具或读取全量日志，不绕过原有状态校验。
